@@ -22,4 +22,4 @@ Quit the server with CONTROL-C.
 4. access the server using url:
 <pre><code>http://128.199.208.181:8000/</code></pre>
 or
-<pre><code>http://dipwinner.sg</code></pre>
+<pre><code>http://dipwinner.sg:8000/</code></pre>
