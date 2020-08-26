@@ -17,7 +17,7 @@ Django version 3.1, using settings 'dip.settings'
 Starting development server at http://0:8000/
 Quit the server with CONTROL-C.
 </code></pre>
-4. access the server using url:
+4. open this url in browser:
 <pre><code>http://128.199.208.181:8000/</code></pre>
 or
 <pre><code>http://dipwinner.sg:8000/</code></pre>
