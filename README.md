@@ -2,7 +2,7 @@
 Design &amp; Innovative Project
 
 ## How to run server:
-1. open the terminal, run the following command:
+1. open terminal, run following command:
 <pre><code>ssh user@128.199.208.181</code></pre>
 2. enter the password, then you will be directed to the home directory.
 3. run the following command to run server:
