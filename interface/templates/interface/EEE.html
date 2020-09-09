@@ -1,12 +1,11 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>About Us</title>
-        <link rel="icon" href="/favicon.ico" type="image/x-icon/">
-    
-    </head>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Real-Time Crowd Density Monitor</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon/">
 
+</head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="http://dipwinner.sg:8000">Real-Time Crowd Density Monitor</a>
@@ -19,7 +18,7 @@
             <li class="nav-item active">
               <a class="nav-link" href="http://dipwinner.sg:8000">Home</a><span class="sr-only">(current)</span>
             </li>
-            
+          
             <li class="nav-item dropdown">
         
               <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle">Locations</a>
@@ -52,7 +51,6 @@
                       <a href="#" role="button" class="dropdown-item">Facility</a>
                   
                         
-                        
                       </ul>
                     </li>
     
@@ -67,6 +65,14 @@
         </div>
       </nav>
 
+      <!--Main-->
+      <img src="https://gothere.sg/maps/staticmap?sensor=false&size=256x256&zoom=17&center=1.34270927512,103.681339084&markers=1.34270927512,103.681339084,red" 
+        class="text-center"
+        alt="sample heat map" 
+        max-width:auto%;
+        height:auto;
+        padding: 50px;
+      }>
       
       <!-- Footer -->
       <footer class="page-footer font-small blue">
@@ -91,16 +97,7 @@
           <a href="{% url 'details' %}">Details</a>
         </h6>
       </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-md-2 mb-3">
-        <h6 class="text-uppercase font-weight-bold">
-          <a href="#!">Awards</a>
-            </h6>
-      </div>
-      <!-- Grid column -->
-      
+      <!-- Grid column -->      
 
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
@@ -151,4 +148,4 @@
 });
       </script>
 </body>
-</html>>
+<html>

@@ -1,4 +1,16 @@
 <html>
+<style>
+  .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
+}
+</style>
+
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -18,9 +30,6 @@
             <li class="nav-item active">
               <a class="nav-link" href="http://dipwinner.sg:8000">Home</a><span class="sr-only">(current)</span>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Heat Map</map></a>
-            </li>
             
             <li class="nav-item dropdown">
         
@@ -32,11 +41,12 @@
                 <li class="dropdown-submenu">
                   <a href="#" role="button" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Schools</a>
                   <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-item">School of Electrical and Electronic Engineering</a></li>
+                    <li><a href="{% url 'EEE' %}" class="dropdown-item">School of Electrical and Electronic Engineering</a></li>
+                    <li><a href="#" class="dropdown-item">Nanyang Business School</a></li>
+                    <li><a href="#" class="dropdown-item">Wee Kim Wee School of Communication and Information</a></li>
                     <li><a href="#" class="dropdown-item">School of Civil and Environmental Engineering</a></li>
-                    <li><a href="#" class="dropdown-item">School of Material and Aerospace Engineering</a></li>
+                   
                   
-                        
                       </ul>
                     </li>
     
@@ -44,9 +54,9 @@
                 <li class="dropdown-submenu">
                   <a href="#" role="button" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Facilities</a>
                   <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-item">Facility</a></li>
-                    <li><a href="#" class="dropdown-item">Facility</a></li>
-                    <li><a href="#" class="dropdown-item">Facility</a></li>
+                    <li><a href="#" class="dropdown-item">Canteen</a></li>
+                    <li><a href="#" class="dropdown-item">Laboratories</a></li>
+                    <li><a href="#" class="dropdown-item">Hall</a></li>
                     
                     <!-- lvl 2 dropdown -->
                     <li class="dropdown-submenu">
@@ -85,7 +95,7 @@
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight-bold">
-          <a href="aboutUs.html">About us</a>
+          <a href="{% url 'aboutUs' %}">About Us</a>
         </h6>
       </div>
       <!-- Grid column -->
@@ -93,24 +103,15 @@
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight-bold">
-          <a href="#!">Details</a>
+          <a href="{% url 'details' %}">Details</a>
         </h6>
-      </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-md-2 mb-3">
-        <h6 class="text-uppercase font-weight-bold">
-          <a href="#!">Awards</a>
-            </h6>
       </div>
       <!-- Grid column -->
       
-
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight-bold">
-          <a href="#!">Help</a>
+          <a href="{% url 'help' %}">Help</a>
         </h6>
       </div>
       <!-- Grid column -->
@@ -118,7 +119,7 @@
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight-bold">
-          <a href="#">Contact</a>
+          <a href="{% url 'contact' %}">Contact</a>
         </h6>
       </div>
       <!-- Grid column -->
