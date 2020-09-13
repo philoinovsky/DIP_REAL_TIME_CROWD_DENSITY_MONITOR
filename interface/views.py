@@ -7,6 +7,11 @@ def index(request):
     context = {}
     return HttpResponse(template.render(context, request))
 
+def home(request):
+    template = loader.get_template('interface/home.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
 def contact(request):
     template = loader.get_template('interface/contact.html')
     context = {}
@@ -29,10 +34,5 @@ def help(request):
 
 def EEE(request):
     template = loader.get_template('interface/EEE.html')
-    context = {}
-    return HttpResponse(template.render(context, request))
-
-def awards(request):
-    template = loader.get_template('interface/awards.html')
     context = {}
     return HttpResponse(template.render(context, request))
