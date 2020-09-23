@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 
+def error_404_view(request, exception=None):
+   return render(request,'interface/error.html')
+
 def index(request):
     template = loader.get_template('interface/index.html')
     context = {}
@@ -14,11 +17,6 @@ def contact(request):
 
 def aboutUs(request):
     template = loader.get_template('interface/aboutUs.html')
-    context = {}
-    return HttpResponse(template.render(context, request))
-
-def details(request):
-    template = loader.get_template('interface/details.html')
     context = {}
     return HttpResponse(template.render(context, request))
 

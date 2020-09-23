@@ -13,11 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url,handler404
 from django.contrib import admin
 from django.urls import include, path
+
 
 urlpatterns = [
     path('', include('interface.urls')),
     url(r'^admin/', admin.site.urls),
+
 ]
+
+handler404 = 'interface.views.error_404_view'

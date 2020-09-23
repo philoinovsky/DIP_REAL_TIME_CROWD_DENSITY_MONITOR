@@ -7,6 +7,34 @@
     crossorigin="anonymous">
 
 
+<style>
+.nav {
+    overflow: hidden;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-variant: uppercase;
+    text-decoration: solid;
+}
+        
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+ }
+.content{
+}
+        
+.sticky + .content {
+    padding-top: 60px;
+}
+
+
+
+.footer-copyright text-center py-4 {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+</style>
 
 <!-- JavaScript -->  
 <script 
@@ -25,9 +53,28 @@
     crossorigin="anonymous">
 </script>
 
+<script>
+// When the user scrolls the page, execute myFunction
+window.onscroll = function() {myFunction()};
+
+// Get the navbar
+var navbar = document.getElementById("navbar");
+
+// Get the offset position of the navbar
+var sticky = navbar.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }}
+</script>
 
 
-<!-- favicon --> 
+
+<!-- favicon -->
 <link rel="apple-touch-icon" sizes="57x57" href='{% static "img/apple-icon-57x57.png" %}'>
 <link rel="apple-touch-icon" sizes="60x60" href='{% static "img/apple-icon-60x60.png" %}'>
 <link rel="apple-touch-icon" sizes="72x72" href='{% static "img/apple-icon-72x72.png" %}'>
@@ -43,5 +90,5 @@
 <link rel="icon" type="image/png" sizes="16x16" href='{% static "img/favicon-16x16.png" %}'>
 <link rel="manifest" href='{% static "img/manifest.json" %}'>
 <meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ms-icon-144x144.png" %}'>
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">

@@ -2,7 +2,20 @@
 {% block head %}
 {% endblock %}
 {% block body %}
-
-<!-- Insert Main Content Here-->
-
+<div class="container">
+    <div class="col-md-12 md-2 text-center" id="Floor">
+            <h2>Level</h2> 
+                1 2 3 4 5
+    </div>
+    <div class="row">
+        <div class="col-md-4 mb-3" id="sticky-sidebar">
+        <!--SideBar-->
+        </div>
+        <div class="col-md-8 mb-3" id="main">
+            <img src="https://gothere.sg/maps/staticmap?sensor=false&size=256x256&zoom=17&center=1.343185,103.681936&markers=1.343185,103.681936,red" 
+                alt="sample heat map" 
+                class="rounded mx-auto d-block" >
+        </div>
+    </div>
+</div>
 {% endblock %}
