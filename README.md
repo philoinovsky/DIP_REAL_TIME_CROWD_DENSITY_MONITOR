@@ -29,7 +29,7 @@ https://docs.djangoproject.com/en/3.1/
 https://getbootstrap.com/docs/4.5/getting-started/introduction/
 
 ## TODO:
-1. 404 notfound page
+1. 404 notfound page ✔
 2. reorganize the codes in templates/interface/*.html, use {% extends './something.html' %}
 3. database setup
 4. make .shp map

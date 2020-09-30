@@ -5,7 +5,8 @@
     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
     crossorigin="anonymous">
-
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/bokeh-1.2.0.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/bokeh-widgets-1.2.0.min.css' %}"> 
 
 <style>
 .nav {
@@ -15,26 +16,50 @@
     font-variant: uppercase;
     text-decoration: solid;
 }
-        
 .nav {
     position: fixed;
     top: 0;
     width: 100%;
  }
 .content{
-}
-        
+} 
 .sticky + .content {
     padding-top: 60px;
 }
-
-
-
 .footer-copyright text-center py-4 {
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+div {
+    padding-top: 10px;
+    padding-right: 80px;
+    padding-bottom: 10px;
+    padding-left: 80px;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+footer {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: thin dotted 
+}
+h3{
+    text-align: center;
+}
+.adder #container {
+    padding-top: 10px;
+    padding-right: 80px;
+    padding-bottom: 10px;
+    padding-left: 80px;
+    font-family: Verdana, Tahoma, sans-serif;
+    text-align: center;
+}
+
+.p{
+    font-size: 10vw;
+}
 </style>
+
+
 
 <!-- JavaScript -->  
 <script 
@@ -52,17 +77,17 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
     crossorigin="anonymous">
 </script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bokeh/2.0.1/bokeh.min.js"></script> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bokeh/2.0.1/bokeh-widgets.min.js"></script> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bokeh/2.0.1/bokeh-api.min.js" crossorigin="anonymous"></script>
 
 <script>
 // When the user scrolls the page, execute myFunction
 window.onscroll = function() {myFunction()};
-
 // Get the navbar
 var navbar = document.getElementById("navbar");
-
 // Get the offset position of the navbar
 var sticky = navbar.offsetTop;
-
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function myFunction() {
   if (window.pageYOffset >= sticky) {

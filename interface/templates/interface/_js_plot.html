@@ -1,0 +1,14 @@
+<script>
+    /* comment later*/
+    width = 500
+    height = 500
+
+    var ISPLOT = 0
+    async function fetch_plot(){
+		const response = await fetch('/api/plot/?w='+width+'&h='+height)
+		var item = await response.json()
+		Bokeh.embed.embed_item(item)
+        ISPLOT = 1
+	}
+	fetch_plot()
+</script>

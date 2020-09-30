@@ -3,9 +3,12 @@
 <title>Home</title>
 {% endblock %}
 {% block body %}
-<div>
-  <img src="https://www.w3schools.com/css/img_mountains.jpg" 
-  alt="sample heat map" 
-  class="rounded mx-auto d-block" >
+<div class="container-fluid h-100">
+	<div class="row justify-content-center h-100">
+    <div id="myplot" class="rounded mx-auto d-block"></div>
+  </div>
 </div>
+{% endblock %}
+{% block script %}
+  {% include "./_js_plot.html"%}
 {% endblock %}

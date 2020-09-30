@@ -1,3 +1,4 @@
+from . import plot
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
@@ -27,5 +28,18 @@ def help(request):
 
 def EEE(request):
     template = loader.get_template('interface/EEE.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+def apiplot(request):
+    return HttpResponse(plot.Layout(500,500))
+
+def tutorialrooms(request):
+    template = loader.get_template('interface/tutorialrooms.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+def trplus(request):
+    template = loader.get_template('interface/trplus.html')
     context = {}
     return HttpResponse(template.render(context, request))
