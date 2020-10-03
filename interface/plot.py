@@ -70,8 +70,25 @@ def handdler(path, type):
     obj['x'] = obj.apply(func, geom='geometry', coord_type='x', axis=1)
     obj['y'] = obj.apply(func, geom='geometry', coord_type='y', axis=1)
     obj_df = obj.drop('geometry', axis=1).copy()
-    # if type == "LS":
-    #     print(obj_df)
+    return ColumnDataSource(data=obj_df)
+
+def roomshanddler(path):
+    obj = gpd.read_file(path)
+    obj['x'] = obj.apply(getPolyCoords, geom='geometry', coord_type='x', axis=1)
+    obj['y'] = obj.apply(getPolyCoords, geom='geometry', coord_type='y', axis=1)
+    N = len(obj['x'])
+    # setup room name according to its id
+    # TODO
+
+    print(dir(obj))
+    # Occupied
+    obj['O'] = [random.random() for _ in range(N)] 
+    # Capacity
+    obj['C'] = [random.random() for _ in range(N)]
+    # read occupancy and capacity from database
+    # TODO
+
+    obj_df = obj.drop('geometry', axis=1).copy()
     return ColumnDataSource(data=obj_df)
 
 def dat():
@@ -85,14 +102,16 @@ def dat():
 def Layout(width=600,height=600):
     hover = HoverTool(
                 tooltips=[
-                    ("index", "$index"),
-                    ("data (using $) (x,y)", "($x, $y)"),
-                    ("data (using @) (x,y)", "(@x, @y)"),
-                    ("canvas (x,y)", "($sx, $sy)")
+                    # ("index", "$index"),
+                    # ("data (using $) (x,y)", "($x, $y)"),
+                    # ("data (using @) (x,y)", "(@x, @y)"),
+                    # ("canvas (x,y)", "($sx, $sy)")
+                    ("Name", "@N"),
+                    ("Occupied", "@O"),
+                    ("Capacity", "@C")
                     ])
 
     TOOLS = "reset,wheel_zoom,pan"
-    global p
     p = figure(name="Map",title="Nanyang Technological University"+dat(), tools=TOOLS,
                plot_width = int(width), plot_height = int(height),toolbar_location="below")
 
@@ -108,7 +127,7 @@ def Layout(width=600,height=600):
     # p.multi_line('x','y', source=handdler(railways,"LS"), color='lightgrey', legend_label='railways', line_width=1)
     p.multi_line('x','y', source=handdler(roads,"LS"), color='lightgrey', legend_label='roads', line_width=1)
     # p.triangle('x','y', source=handdler(stations,"PN"), color='lightblue', legend_label='stations')
-    p.patches('x','y', source=handdler(s2_b3,"PG"), color='blue', legend_label='S2 Level B3')
+    p.patches('x','y', source=roomshanddler(s2_b3), color='blue', legend_label='S2 Level B3')
     # p.triangle('x','y', source=handdler(trees,"PN"), color='lightblue', legend_label='trees')
     # tunnels
     # p.patches('x','y', source=handdler(water_areas,"PG"), color='lightblue', legend_label='water')
