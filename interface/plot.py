@@ -23,7 +23,7 @@ now = root + "now-data.shp"
 railways = root + "railways-line.shp"
 roads = root + "roads-line.shp"
 stations = root + "stations-point.shp"
-s2_b3 = root + "s2_b3.shp"
+s2_b4 = root + "s2_b4.shp"
 trees = root + "trees-point.shp"
 tunnels = root + "tunnels-line.shp"
 water_areas = root + "water_areas-polygon.shp"
@@ -127,7 +127,7 @@ def Layout(width=600,height=600):
     # p.multi_line('x','y', source=handdler(railways,"LS"), color='lightgrey', legend_label='railways', line_width=1)
     p.multi_line('x','y', source=handdler(roads,"LS"), color='lightgrey', legend_label='roads', line_width=1)
     # p.triangle('x','y', source=handdler(stations,"PN"), color='lightblue', legend_label='stations')
-    p.patches('x','y', source=roomshanddler(s2_b3), color='blue', legend_label='S2 Level B3')
+    p.patches('x','y', source=roomshanddler(s2_b4), color='blue', legend_label='S2 Level B3')
     # p.triangle('x','y', source=handdler(trees,"PN"), color='lightblue', legend_label='trees')
     # tunnels
     # p.patches('x','y', source=handdler(water_areas,"PG"), color='lightblue', legend_label='water')
