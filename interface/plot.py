@@ -80,7 +80,6 @@ def roomshanddler(path):
     # setup room name according to its id
     # TODO
 
-    print(dir(obj))
     # Occupied
     obj['O'] = [random.random() for _ in range(N)] 
     # Capacity
