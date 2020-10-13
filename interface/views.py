@@ -1,7 +1,12 @@
 from . import plot
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.template import loader
+from rest_framework.parsers import JSONParser
+from rest_framework.decorators import api_view
+from rest_framework import status
+from . models import s2_1,s2_b1,s2_b2,s2_b3,s2_b4
+from . serializers import s2_1_Serializer,s2_b1_Serializer,s2_b2_Serializer,s2_b3_Serializer,s2_b4_Serializer
 
 def error_404_view(request, exception=None):
    return render(request,'interface/error.html')
@@ -43,18 +48,6 @@ def trplus(request):
     template = loader.get_template('interface/trplus.html')
     context = {}
     return HttpResponse(template.render(context, request))
-
-#from django.shortcuts import render
-
-from django.http import HttpResponse, JsonResponse
-#from django.shortcuts import get_object_or_404
-#from rest_framework.views import APIView
-#from rest_framework.response import Response
-from rest_framework.parsers import JSONParser
-from rest_framework.decorators import api_view
-from rest_framework import status
-from . models import s2_1,s2_b1,s2_b2,s2_b3,s2_b4
-from . serializers import s2_1_Serializer,s2_b1_Serializer,s2_b2_Serializer,s2_b3_Serializer,s2_b4_Serializer
 
 @api_view(['GET'])
 def s2_1_list(request):
