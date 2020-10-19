@@ -1,21 +1,45 @@
 {% extends "./_base.html"%} 
 {% block head %}
+<title>School of EEE</title>
 {% endblock %}
 {% block body %}
-        <div class="w3-sidebar w3-bar-block" style="width:40%;right:0">
-            <h5 class="w3-bar-item">School of EEE</h5>
-            <h6>Laboratory:</h6>
-            <a href="#" class="w3-bar-item w3-button">Autonomous Robotics Research Lab</a>
-            <br><a href="#" class="w3-bar-item w3-button">Biomedical Instrumentation Lab</a>
-            <br><a href="#" class="w3-bar-item w3-button">CEE Lab </a>
-            <br><a href="#" class="w3-bar-item w3-button">Centre for Signal Processing</a>
-            <br><a href="#" class="w3-bar-item w3-button">Characterisation Lab</a>
-            <br><a href="#" class="w3-bar-item w3-button">Clean Room</a>
-            <br><a href="#" class="w3-bar-item w3-button">Communication Lab I</a>
-            <br><a href="#" class="w3-bar-item w3-button">Communication Lab II</a>
-        </div>
-        <div class="w3-main">
-        
-        </div>
+<div>
+    <div class="row">
+     <nav class="col-md-3 d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+            <h5 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Laboratory:</span>
+              <a class="d-flex align-items-center text-muted" href="#">
+              </a>
+            </h5>
+                <a class="nav-link" href="#">
+                   Autonomous Robotics Research Lab
+                </a>
+                <a class="nav-link" href="#">
+                     Biomedical Instrumentation Lab
+                </a>
+                <a class="nav-link" href="#">
+                     CEE Lab
+                </a>
+                <a class="nav-link" href="#">
+                    Centre for Signal Processing
+                </a>
+                <a class="nav-link" href="#">
+                    Characterisation Lab
+                </a>
+                <a class="nav-link" href="#">
+                    Clean Room
+                </a>
+                <a class="nav-link" href="#">
+                    Communication Lab I
+                </a>
+               <a class="nav-link" href="#">
+                 Communication Lab II
+               </a>
+           
+      </div>
+     </nav>
+    </div>
+</div>
 
 {% endblock %}

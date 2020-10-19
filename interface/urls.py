@@ -1,5 +1,6 @@
 from django.urls import path, re_path
 from . import views
+from rest_framework.authtoken import views as views_aut
 
 
 urlpatterns = [
@@ -8,6 +9,7 @@ urlpatterns = [
     path('aboutUs', views.aboutUs, name='aboutUs'),
     path('help', views.help, name='help'),
     path('EEE', views.EEE, name='EEE'),
+    path('sidebar', views.sidebar, name='sidebar'),
     path('tutorialrooms', views.tutorialrooms, name='tutorialrooms'),
     path('trplus', views.trplus, name='trplus'),
     path('api/plot/', views.apiplot, name='apiplot'),
@@ -21,6 +23,6 @@ urlpatterns = [
     path('s2_b2/<int:pk>', views.s2_b2_detail),
     path('s2_b3/<int:pk>', views.s2_b3_detail),
     path('s2_b4/<int:pk>', views.s2_b4_detail),
-    re_path(r'.*',views.error_404_view, name='error_404_view'),
+    path('api-token-auth/', views_aut.obtain_auth_token, name='api-token-auth'),
+    re_path(r'.*', views.error_404_view, name='error_404_view'),
 ]
-
