@@ -122,7 +122,9 @@ def Layout(width=600, height=600):
             ("Name", "@N"),
             ("Occupied", "@O"),
             ("Capacity", "@C")
-        ])
+        ],
+        names=["target"]
+    )
 
     TOOLS = "reset,wheel_zoom,pan"
     p = figure(name="Map", title="Nanyang Technological University"+dat(), tools=TOOLS,
@@ -143,7 +145,7 @@ def Layout(width=600, height=600):
                  color='lightgrey', legend_label='roads', line_width=1)
     # p.triangle('x','y', source=handdler(stations,"PN"), color='lightblue', legend_label='stations')
     p.patches('x', 'y', source=roomshanddler(s2_b4),
-              color='blue', legend_label='S2 Level B3')
+              color='blue', legend_label='S2 Level B3', name="target")
     # p.triangle('x','y', source=handdler(trees,"PN"), color='lightblue', legend_label='trees')
     # tunnels
     # p.patches('x','y', source=handdler(water_areas,"PG"), color='lightblue', legend_label='water')

@@ -5,10 +5,21 @@
 
     var ISPLOT = 0
     async function fetch_plot(){
-		const response = await fetch('/api/plot/?w='+width+'&h='+height)
-		var item = await response.json()
-		Bokeh.embed.embed_item(item)
-        ISPLOT = 1
-	}
+        const response = await fetch('/api/plot/?w='+width+'&h='+height)
+        var item = await response.json()
+        Bokeh.embed.embed_item(item)
+            ISPLOT = 1
+    }
 	fetch_plot()
+
+    /* start timer */
+    locations = ["s2_b4"]
+    updateinterval = 3
+    async function update_plot(location, idx, array){
+        // update for each locations
+        const response = await fetch(location)
+        var item = await response.json()
+        console.log(item)
+    }
+    setInterval(function(){locations.forEach(update_plot)}, 3000)
 </script>
