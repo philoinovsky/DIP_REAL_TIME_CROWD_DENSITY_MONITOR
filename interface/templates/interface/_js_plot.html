@@ -13,13 +13,15 @@
 	fetch_plot()
 
     /* start timer */
-    locations = ["s2_b4"]
-    updateinterval = 3
+    var locations = ["s2_b4"]
+    var updateinterval = 3
     async function update_plot(location, idx, array){
         // update for each locations
         const response = await fetch(location)
         var item = await response.json()
         console.log(item)
+        var ds = Bokeh.documents[0]
+        console.log(ds)
     }
     setInterval(function(){locations.forEach(update_plot)}, 3000)
 </script>
