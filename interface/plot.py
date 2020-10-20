@@ -112,7 +112,7 @@ def dat():
     return title
 
 
-def Layout(width=600, height=600):
+def Layout(width, height, xl, xr, yl, yr):
     hover = HoverTool(
         tooltips=[
             # ("index", "$index"),
@@ -127,8 +127,9 @@ def Layout(width=600, height=600):
     )
 
     TOOLS = "reset,wheel_zoom,pan"
-    p = figure(name="Map", title="Nanyang Technological University"+dat(), tools=TOOLS,
-               plot_width=int(width), plot_height=int(height), toolbar_location="below")
+    p = figure(name = "Map", title = "Nanyang Technological University" + dat(), tools = TOOLS,
+               plot_width = int(width), plot_height = int(height), toolbar_location = "below",
+               x_range = (xl, xr), y_range = (yl, yr))
 
     # Add the lines to the map from our 'msource' ColumnDataSource -object
     # p.triangle('x','y',source=handdler(address,"PN"), color='brown',line_color="brown", legend_label='address')
@@ -159,4 +160,4 @@ def Layout(width=600, height=600):
 
 if __name__ == "__main__":
     output_file("lines.html")
-    Layout("Home Layout"+dat())
+    Layout(500,500,1,100,1,100)

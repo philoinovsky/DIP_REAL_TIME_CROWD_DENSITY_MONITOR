@@ -3,6 +3,11 @@
 <title>School of EEE</title>
 {% endblock %}
 {% block body %}
+<div class="container-fluid h-100">
+	<div class="row justify-content-center h-100">
+    <div id="myplot" class="rounded mx-auto d-block"></div>
+  </div>
+</div>
 <div>
     <div class="row">
      <nav class="col-md-3 d-md-block bg-light sidebar">
@@ -41,5 +46,7 @@
      </nav>
     </div>
 </div>
-
+{% endblock %}
+{% block script %}
+  {% include "./_js_plot.html" with xl=xl xr=xr yl=yl yr=yr %}
 {% endblock %}

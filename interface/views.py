@@ -11,6 +11,8 @@ from . models import s2_1, s2_b1, s2_b2, s2_b3, s2_b4
 from . serializers import s2_1_Serializer, s2_b1_Serializer, s2_b2_Serializer, s2_b3_Serializer, s2_b4_Serializer
 
 
+NTUxl, NTUxr, NTUyl, NTUyr = 103.675, 103.69, 1.337, 1.356
+EEExl, EEExr, EEEyl, EEEyr = 103.6799, 103.6822, 1.3412, 1.3441
 @csrf_exempt
 def error_404_view(request, exception=None):
     return render(request, 'interface/error.html')
@@ -19,7 +21,7 @@ def error_404_view(request, exception=None):
 @csrf_exempt
 def index(request):
     template = loader.get_template('interface/index.html')
-    context = {}
+    context = {"xl": NTUxl, "xr": NTUxr, "yl": NTUyl, "yr": NTUyr}
     return HttpResponse(template.render(context, request))
 
 
@@ -47,17 +49,21 @@ def help(request):
 @csrf_exempt
 def EEE(request):
     template = loader.get_template('interface/EEE.html')
-    context = {}
+    context = {"xl": EEExl, "xr": EEExr, "yl": EEEyl, "yr": EEEyr}
     return HttpResponse(template.render(context, request))
 
 
 @csrf_exempt
 def apiplot(request):
     if 'w' not in request.GET.keys() and 'h' not in request.GET.keys():
-        return HttpResponse("Error: Format should be: "+reverse('interface:apiplot')+"?w=")
+        return HttpResponse("Error: Format should be: "+reverse('interface:apiplot')+"?w="+"?h=")
     w = int(request.GET['w'])
     h = int(request.GET['h'])
-    return HttpResponse(plot.Layout(w, h))
+    xl = float(request.GET['xl'])
+    xr = float(request.GET['xr'])
+    yl = float(request.GET['yl'])
+    yr = float(request.GET['yr'])
+    return HttpResponse(plot.Layout(w, h, xl, xr, yl, yr))
 
 
 @csrf_exempt
