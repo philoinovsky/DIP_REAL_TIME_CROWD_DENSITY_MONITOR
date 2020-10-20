@@ -19,9 +19,16 @@
         // update for each locations
         const response = await fetch(location)
         var item = await response.json()
-        console.log(item)
-        var ds = Bokeh.documents[0]
-        console.log(ds)
+        // console.log(item)
+        if(Bokeh.documents[0]){
+            var ds = Bokeh.documents[0].get_model_by_name("target").data_source
+            data = ds.data
+            for (i = 0; i < data.x.length; i++) {
+                data.O[i] = item[i].occupied
+            }
+            ds.change.emit()
+            // console.log(ds)
+        }
     }
-    setInterval(function(){locations.forEach(update_plot)}, 3000)
+    setInterval(function(){locations.forEach(update_plot)}, 2000)
 </script>
