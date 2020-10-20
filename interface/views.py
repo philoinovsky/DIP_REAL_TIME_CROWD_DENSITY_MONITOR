@@ -1,6 +1,7 @@
 from . import plot
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from django.urls import reverse
 from django.template import loader
 from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
@@ -52,7 +53,11 @@ def EEE(request):
 
 @csrf_exempt
 def apiplot(request):
-    return HttpResponse(plot.Layout(500, 500))
+    if 'w' not in request.GET.keys() and 'h' not in request.GET.keys():
+        return HttpResponse("Error: Format should be: "+reverse('interface:apiplot')+"?w=")
+    w = int(request.GET['w'])
+    h = int(request.GET['h'])
+    return HttpResponse(plot.Layout(w, h))
 
 
 @csrf_exempt
