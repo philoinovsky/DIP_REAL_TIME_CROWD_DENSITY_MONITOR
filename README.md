@@ -29,10 +29,3 @@ https://docs.djangoproject.com/en/3.1/
 https://getbootstrap.com/docs/4.5/getting-started/introduction/
 
 ## TODO:
-1. 404 notfound page ✔
-2. reorganize the codes in templates/interface/*.html, use {% extends './something.html' %}
-3. database setup
-4. make .shp map
-5. raspberry pi client set up (usage: capture frame and send to server)
-6. server opencv model set up (usage: receive frame from raspberry pi, recognize people and send data to API)
-7. API (usage: receive request from opencv part and update the bokeh map)
