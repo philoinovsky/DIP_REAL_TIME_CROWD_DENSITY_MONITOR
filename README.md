@@ -29,3 +29,4 @@ https://docs.djangoproject.com/en/3.1/
 https://getbootstrap.com/docs/4.5/getting-started/introduction/
 
 ## TODO:
+1. update the bokeh graph, so when user click a specific room, the hover box will popup. (JS)
