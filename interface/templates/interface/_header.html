@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark">
-  <a class="navbar-brand" href="http://dipwinner.sg:8000">Real-Time<b><em> Crowd Density</em></b> Monitor</a> </h6>
+  <a class="header-text text-white" href="http://dipwinner.sg:8000">Real-Time <b><em>Crowd Density</em></b> Monitor</a><span class="sr-only">(current)</span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,42 +8,50 @@
         <li class="nav-item active">
           <a class="nav-link" href="http://dipwinner.sg:8000">HOME</a><span class="sr-only">(current)</span> 
         </li>
+
+        <!--Locations Menu-->
         <li class="nav-item dropdown">
           <a href="#" data-toggle="dropdown" h6 class="nav-link dropdown-toggle">LOCATIONS</a>
           <ul class="dropdown-menu">
-            <!-- lvl 1 dropdown -->
-            <li class="dropdown-submenu">
-              <a href="#" role="button" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Schools</a>
+
+             <!-- lvl 1 dropdown -->
+             <li class="dropdown-submenu">
+              <a href="#" role="button" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Laboratories</a>
               <ul class="dropdown-menu">
-                <li><a href="{% url 'EEE' %}" class="dropdown-item">School of Electrical and Electronic Engineering</a></li>
-                <li><a href="#" class="dropdown-item">Nanyang Business School</a></li>
-                <li><a href="#" class="dropdown-item">Wee Kim Wee School of Communication and Information</a></li>
                 <li><a href="#" class="dropdown-item">School of Civil and Environmental Engineering</a></li>
-                  </ul>
-                </li>
-            <!-- lvl 1 dropdown -->
-            <li class="dropdown-submenu">
-              <a href="#" role="button" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Facilities</a>
-              <ul class="dropdown-menu">
-                <li><a href="#" class="dropdown-item">Canteen</a></li>
-                <!--<li><a href="#" class="dropdown-item"></a></li>-->
-                <li><a href="#" class="dropdown-item">Hall</a></li>
-                <li><a href="{% url 'tutorialrooms' %}" class="dropdown-item">Tutorial Rooms</a></li>
-                <li><a href="{% url 'trplus' %}" class="dropdown-item">Tutorial Rooms +</a></li>
-                <!-- lvl 2 dropdown -->
+                
+                <!-- lvl 2 dropdown --> 
                 <li class="dropdown-submenu">
-                  <!--<a href="#" role="button" class="dropdown-item">Facility</a>-->
+                  <a href="#" role="button" data-toggle="dropdown" class="dropdown-item dropdown-toggle">School of Electrical and Electronic Engineering</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" class="dropdown-item">Autonomous Robotics Research Lab</a></li>
+                    <li><a href="#" class="dropdown-item">Biomedical Instrumentation Lab</a></li>
+                    <li><a href="#" class="dropdown-item">CEE Lab</a></li>
+                    <li><a href="#" class="dropdown-item">Centre for Signal Processing</a></li>
+                    <li><a href="#" class="dropdown-item">Characterisation Lab</a></li>
+                    <li><a href="#" class="dropdown-item">Clean Room</a></li>
+                    <li><a href="{% url 'EEE' %}" class="dropdown-item">Communication Lab </a></li>
                   </ul>
                 </li>
+                
               </ul>
             </li>
+
+            <li><a href="#" class="dropdown-item">Canteen</a></li>
+            <li><a href="#" class="dropdown-item">Hall</a></li>
+            <li><a href="{% url 'hive' %}" class="dropdown-item">Hive</a></li>
+            <li><a href="#" class="dropdown-item">Tutorial Rooms</a></li>
+             
+          </ul>
+        </li>
       </ul>
+      
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     
-  </nav>
+</nav>
   <script>
     $(function() {
       $("ul.dropdown-menu [data-toggle='dropdown']").on("click", function(event) {

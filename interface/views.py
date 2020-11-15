@@ -52,7 +52,12 @@ def EEE(request):
     context = {"xl": EEExl, "xr": EEExr, "yl": EEEyl, "yr": EEEyr}
     return HttpResponse(template.render(context, request))
 
-
+@csrf_exempt
+def hive(request):
+    template = loader.get_template('interface/hive.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+    
 @csrf_exempt
 def apiplot(request):
     if 'w' not in request.GET.keys() and 'h' not in request.GET.keys():
@@ -76,13 +81,6 @@ def tutorialrooms(request):
 @csrf_exempt
 def trplus(request):
     template = loader.get_template('interface/trplus.html')
-    context = {}
-    return HttpResponse(template.render(context, request))
-
-
-@csrf_exempt
-def sidebar(request):
-    template = loader.get_template('interface/sidebar.html')
     context = {}
     return HttpResponse(template.render(context, request))
 

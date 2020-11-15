@@ -2,16 +2,19 @@
 from cryptography.fernet import Fernet
 import requests
 import json
+from datetime import datetime
 
 path_pswd = '/home/user/dip/interface/credentials/db_sqlite3_bytes.bin'
 path_pub_key = '/home/user/dip/interface/credentials/db_sqlite3_key_bytes.bin'
-
+password = ''
+token = ''
 
 # This function will call api to retrieve database and return room list base on building name and level
 def getRoomList(location):
-
     # Format the token into header
-    token = getToken()
+    global token
+    if(token == ''):
+        token = getToken()
     resp = requests.get('http://127.0.0.1:8000/{}'.format(location), headers={
         'Authorization': token})
 
@@ -44,11 +47,14 @@ def updateRoomDetails(roomInfo):
     room_name = roomInfo['name']
     room_capacity = roomInfo['capacity']
     room_occupied = roomInfo['occupied']
+    global token
+    if(token == ''):
+        token = getToken()
 
     link = 'http://127.0.0.1:8000/{}/{}'.format(room_location, room_id)
     data_payload = {'id': room_id, 'name': room_name,
                     'capacity': room_capacity, 'occupied': room_occupied}
-    authentication = {'Authorization': getToken()}
+    authentication = {'Authorization': tokens}
 
     requests.put(url=link, data=json.dumps(
         data_payload), headers=authentication)
@@ -86,19 +92,22 @@ def decryption(key, msg):
 
 # Get token for API
 def getToken():
+    global token
+    global password
+    if(password == ''):
+        # Read public key from local binary file
+        with open(path_pub_key, 'rb') as file_object:
+            for line in file_object:
+                key = line
 
-    # Read public key from local binary file
-    with open(path_pub_key, 'rb') as file_object:
-        for line in file_object:
-            key = line
+        # Read encrypted password from binary file and use public key to deccrypt
+        with open(path_pswd, 'rb') as file_object:
+            for line in file_object:
+                encryptedpwd = line
 
-    # Read encrypted password from binary file and use public key to deccrypt
-    with open(path_pswd, 'rb') as file_object:
-        for line in file_object:
-            encryptedpwd = line
+        uncipher_text = decryption(key, encryptedpwd)
+        password = bytes(uncipher_text["text"]).decode("utf-8")
 
-    uncipher_text = decryption(key, encryptedpwd)
-    password = bytes(uncipher_text["text"]).decode("utf-8")
     username = 'root'
     credential = {'username': username, 'password': password}
 
@@ -106,3 +115,41 @@ def getToken():
         'http://127.0.0.1:8000/api-token-auth/', data=credential)
     api_token = 'Token {}'.format(token.json()['token'])
     return api_token
+
+#cron job
+def dynamic_encryption():
+    global token
+    global password
+
+    if(password == ''):
+        # Read public key from local binary file
+        with open(path_pub_key, 'rb') as file_object:
+            for line in file_object:
+                key = line
+
+        # Read encrypted password from binary file and use public key to deccrypt
+        with open(path_pswd, 'rb') as file_object:
+            for line in file_object:
+                encryptedpwd = line
+
+        uncipher_text = decryption(key, encryptedpwd)
+        password = bytes(uncipher_text["text"]).decode("utf-8")
+
+    msg = password
+    encryptedData = encryption('',msg)
+    
+    with open(path_pub_key, 'wb') as file_object:
+        file_object.write(encryptedData['key'])
+
+    with open(path_pswd, 'wb') as file_object:
+        file_object.write(encryptedData['text'])
+
+    myFile = open('/home/user/dip/interface/credentials/log.txt', 'a') 
+    myFile.write('\n******Cron job has been executed!----'+str(datetime.now())+'*************' '\n' + str(encryptedData['key']) +'\n' +str(encryptedData['text'])) 
+
+
+    
+    
+
+
+    

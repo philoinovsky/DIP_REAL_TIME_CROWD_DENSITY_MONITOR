@@ -4,47 +4,18 @@
 {% endblock %}
 {% block body %}
 
-<div class="container-fluid">
-  <div class="row justify-content-center">
-   <nav class="col-md-2 d-md-block bg-light sidebar">
-    <div class="sidebar-sticky">
-          <h5 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Laboratory:</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-              </a>
-            </h5>
-                <a class="nav-link" href="#">
-                   Autonomous Robotics Research Lab
-                </a>
-                <a class="nav-link" href="#">
-                     Biomedical Instrumentation Lab
-                </a>
-                <a class="nav-link" href="#">
-                     CEE Lab
-                </a>
-                <a class="nav-link" href="#">
-                    Centre for Signal Processing
-                </a>
-                <a class="nav-link" href="#">
-                    Characterisation Lab
-                </a>
-                <a class="nav-link" href="#">
-                    Clean Room
-                </a>
-                <a class="nav-link" href="#">
-                    Communication Lab I
-                </a>
-               <a class="nav-link" href="#">
-                 Communication Lab II
-               </a>
-      </div>
-     </nav>
 
-     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb bg-white">
+    <li class="breadcrumb-item"><a class="text-muted" href="http://dipwinner.sg:8000">Home</a></li>
+    <li class="breadcrumb-item"><a>School of EEE</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Communication Lab</li>
+  </ol>
+</nav>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">  
         <div id="myplot" class="rounded mx-auto d-block"></div>
-      </div>
-     </main>
   </div>
 </div>
 {% endblock %}

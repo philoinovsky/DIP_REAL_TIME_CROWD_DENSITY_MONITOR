@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_crontab',
     'rest_framework',
     'rest_framework.authtoken'
 ]
@@ -132,4 +133,8 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     "/home/user/dip/interface/static",
+]
+
+CRONJOBS = [
+    ('*/10 * * * *','interface.utilities.dynamic_encryption')
 ]
